@@ -110,9 +110,7 @@ for (let i = 0; i < maxVidas; i++) {
   let cheio = i < vidas;
   desenharCoracao(40 + i * 50, 50, 0.6, cheio);
 }
-
-  desenharMostrador(10, height - 100);
-
+  // desenharMostrador(10, height - 100);
     if (vidas <= 0) {
     estadoJogo = "gameover";
   }
@@ -150,15 +148,18 @@ function desenharCoracao(x, y, tamanho, cheio) {
   pop();
 }
 
-// DEBUG
-function desenharMostrador(x, y) {
-  fill(0);
-  noStroke();
-  textSize(14);
-  text(`Vidas: ${vidas}`, x, y);
-  text(`Colidiu com flor: ${colFlor}`, x, y + 20);
-  text(`Colidiu com apicultor: ${colApicultor}`, x, y + 40);
-  text(`Colidiu com homem: ${colHomem}`, x, y + 60);
-  text(`Caiu: ${abelhaCaiu}`, x, y + 80);
+// function desenharMostrador(x, y) {
+//   fill(0);
+//   noStroke();
+//   textSize(14);
+//   text(`Vidas: ${vidas}`, x, y);
+//   text(`Colidiu com flor: ${colFlor}`, x, y + 20);
+//   text(`Colidiu com apicultor: ${colApicultor}`, x, y + 40);
+//   text(`Colidiu com homem: ${colHomem}`, x, y + 60);
+//   text(`Caiu: ${abelhaCaiu}`, x, y + 80);
+// }
+function keyPressed() {
+  if (estadoJogo === "jogando" && keyCode === UP_ARROW) {
+    abelha.pular();
+  }
 }
-
