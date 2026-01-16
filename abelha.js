@@ -21,9 +21,9 @@ class Abelha extends Base {
 
   mostrar() {
     image(this.img, this.x - 15, this.y, this.largura, this.altura);
-  //   noFill();
-  //   stroke("red");
-  //   rect(this.x + this.hitboxOffsetX, this.y + this.hitboxOffsetY, this.hitboxWidth, this.hitboxHeight);
+    noFill();
+    stroke("red");
+    rect(this.x + this.hitboxOffsetX, this.y + this.hitboxOffsetY, this.hitboxWidth, this.hitboxHeight);
    }
 
 

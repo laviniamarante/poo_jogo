@@ -13,9 +13,9 @@ class Apicultor extends Base {
     image(this.img, this.x - 15, this.y + 25);
     
     // Hitbox (opcional - para debug)
-    // noFill();
-    // stroke("red");
-    // rect(this.x, this.y, this.largura, this.altura);
+     noFill();
+     stroke("red");
+     rect(this.x, this.y, this.largura, this.altura);
   }
 }
 

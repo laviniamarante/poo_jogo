@@ -10,9 +10,10 @@ let vidas = 3;
 let maxVidas = 3;
 let invencivel = false;
 let tempoInvencivel = 0;
+let estadoJogo = "jogando";
 
-// variáveis para debug
 let colFlor = false, colApicultor = false, colHomem = false, abelhaCaiu = false;
+
 
 function preload() {
   imgBel = loadImage("img/bel-sm.png");
@@ -58,6 +59,11 @@ function setup() {
 
 function draw() {
   background("rgba(123, 204, 255, 1)");
+
+  if (estadoJogo === "gameover") {
+    telaGameOver();
+    return;
+  }
 
   sol.x -= velocidadeMundo * 0.2;
   sol.mostrar();
@@ -105,18 +111,21 @@ for (let i = 0; i < maxVidas; i++) {
   desenharCoracao(40 + i * 50, 50, 0.6, cheio);
 }
 
-
   desenharMostrador(10, height - 100);
 
-  //tabelinha do debug
-  // fill(0);
-  // text(`Abelha (tela): (${abelha.x.toFixed(0)}, ${abelha.y.toFixed(0)})`, 10, 30);
-  // text(`Velocidade: ${velocidadeMundo}`, 10, 50);
-  // text(`NPCs: ${npcs.length}`, 10, 70);
-  // text(`Plataformas: ${plataformas.length}`, 10, 90);
-
+    if (vidas <= 0) {
+    estadoJogo = "gameover";
+  }
 }
 
+function telaGameOver() {
+  background("rgba(123, 204, 255, 1)");
+
+  textAlign(CENTER, CENTER);
+  fill(255);
+  textSize(42);
+  text("GAME OVER", width / 2, height / 2 - 50);
+}
 
 function desenharCoracao(x, y, tamanho, cheio) {
   push();
